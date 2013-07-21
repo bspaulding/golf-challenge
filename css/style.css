@@ -1,2 +1,18 @@
 .progress.big { height: 40px; line-height: 40px; }
 .progress.big .bar { font-size: 16px; }
+
+.row-fluid .span12.main { width: 66%; }
+
+/* Large desktop */
+/* @media (min-width: 1200px) { ... } */
+
+/* Portrait tablet to landscape and desktop */
+/* @media (min-width: 768px) and (max-width: 979px) { ... } */
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+  .row-fluid .span12.main { width: 100%; margin-left: 0px; }
+}
+
+/* Landscape phones and down */
+/* @media (max-width: 480px) { ... } */
