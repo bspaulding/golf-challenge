@@ -47,7 +47,7 @@
 
       <div class="span6">
         <h4>Available Golfers <small>({{controller.availableGolfers.length}} golfers cost {{bracket.pointsAvailable}} points or less)</small></h4>
-        {{input valueBinding="controller.availableGolferFilter"}}
+        {{input type="text" class="span12" placeholder="Search by name" valueBinding="controller.availableGolferFilter"}}
         <ol class="unstyled">
         {{#each golfer in controller.availableGolfers}}
           <li>
