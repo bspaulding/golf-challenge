@@ -76,7 +76,7 @@ App.Bracket = DS.Model.extend({
 });
 
 App.Bracket.FIXTURES = [
-  { id: 1, golfers: [8] }
+  { id: 1, golfers: [] }
 ];
 
 App.Golfer = DS.Model.extend({
