@@ -12,56 +12,57 @@
 <body class="container-fluid">
 
   <script type="text/x-handlebars">
-    <h2>Welcome to PGA Golf Challenge</h2>
+    <h2 class="text-center">Welcome to PGA Golf Challenge</h2>
 
-    {{outlet}}
+    <div class="row-fluid">
+      <div class="span2 hidden-phone"></div>
+      <div class="span8 hidden-phone">
+        {{outlet}}
+      </div>
+      <div class="span2 hidden-phone"></div>
+    </div>
   </script>
 
   <script type="text/x-handlebars" data-template-name="index">
-    <h3>Edit Bracket</h3>
-    <div class="row-fluid">
-      <div class="progress big">
-        <div class="bar bar-info" {{bindAttr style="controller.spentBarStyle"}}>
-          {{bracket.spent}} Points Spent
-        </div>
-        <div class="bar bar-success" {{bindAttr style="controller.availableBarStyle"}}>
-          {{bracket.pointsAvailable}} Points Available
-        </div>
-    </div>
-    <div class="row-fluid">
-      <div class="span6">
-        <h4>My Golfers <small>({{controller.selectedGolfers.length}} golfers, {{bracket.spent}} points spent)</small></h4>
-        <ol class="unstyled">
-        {{#each golfer in controller.selectedGolfers}}
-          <li>
-            <button class="btn btn-danger pull-right" {{action "removeGolfer" golfer}}>
-              <i class="icon-minus icon-white"></i>
-              Remove Golfer
-            </button>
-            <strong>{{golfer.name}}</strong><br/>
-            <em>{{golfer.cost}} points</em>
-          </li>
-        {{/each}}
-        </ol>
-      </div>
+    <h3 class="text-center">Edit Your Bracket</h3>
 
-      <div class="span6">
-        <h4>Available Golfers <small>({{controller.availableGolfers.length}} golfers cost {{bracket.pointsAvailable}} points or less)</small></h4>
-        {{input type="text" class="span12" placeholder="Search by name" valueBinding="controller.availableGolferFilter"}}
-        <ol class="unstyled">
-        {{#each golfer in controller.availableGolfers}}
-          <li>
-            <button class="btn btn-success pull-right" {{action "addGolfer" golfer}}>
-              <i class="icon-plus icon-white"></i>
-              Add Golfer
-            </button>
-            <strong>{{golfer.name}}</strong><br/>
-            <em>{{golfer.cost}} points</em>
-          </li>
-        {{/each}}
-        </ol>
+    <div class="progress big">
+      <div class="bar bar-info" {{bindAttr style="controller.spentBarStyle"}}>
+        {{bracket.spent}} Points Spent
+      </div>
+      <div class="bar bar-success" {{bindAttr style="controller.availableBarStyle"}}>
+        {{bracket.pointsAvailable}} Points Available
       </div>
     </div>
+
+    <h4>Selected Golfers <small>({{controller.selectedGolfers.length}})</small></h4>
+    <ol class="unstyled">
+    {{#each golfer in controller.selectedGolfers}}
+      <li>
+        <button class="btn btn-danger pull-right" {{action "removeGolfer" golfer}}>
+          <i class="icon-minus icon-white"></i> Remove
+        </button>
+        <strong>{{golfer.name}}</strong><br/>
+        <em>{{golfer.cost}} points</em>
+      </li>
+    {{/each}}
+    </ol>
+
+    <hr>
+
+    <h4>Available Golfers <small>({{controller.availableGolfers.length}})</small></h4>
+    {{input type="text" class="span12" placeholder="Search by name" valueBinding="controller.availableGolferFilter"}}
+    <ol class="unstyled">
+    {{#each golfer in controller.availableGolfers}}
+      <li>
+        <button class="btn btn-success pull-right" {{action "addGolfer" golfer}}>
+          <i class="icon-plus icon-white"></i> Add
+        </button>
+        <strong>{{golfer.name}}</strong><br/>
+        <em>{{golfer.cost}} points</em>
+      </li>
+    {{/each}}
+    </ol>
   </script>
 
   <script src="js/libs/jquery-1.9.1.js"></script>
