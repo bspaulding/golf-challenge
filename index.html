@@ -36,6 +36,11 @@
     </div>
 
     <h4>Selected Golfers <small>({{controller.selectedGolfers.length}})</small></h4>
+
+    {{#if controller.selectedGolfers.isEmpty}}
+      <p><em>Select from the available golfers below to build your bracket.</em></p>
+    {{/if}}
+
     <ol class="unstyled">
     {{#each golfer in controller.selectedGolfers}}
       <li>
