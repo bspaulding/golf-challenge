@@ -23,13 +23,18 @@ App.IndexRoute = Ember.Route.extend({
 });
 
 App.IndexController = Ember.ObjectController.extend({
+  saveBracket: function() {
+    this.get('model.bracket.store').commit();
+  },
+
   addGolfer: function(golfer) {
     this.get('model.bracket.golfers').addObject(golfer);
-    this.set('availableGolferFilter', '');
+    this.saveBracket();
   },
 
   removeGolfer: function(golfer) {
     this.get('model.bracket.golfers').removeObject(golfer);
+    this.saveBracket();
   },
 
   availableGolferFilter: '',
