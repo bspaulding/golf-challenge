@@ -65,6 +65,7 @@ App.IndexController = Ember.ObjectController.extend({
 
 App.Bracket = DS.Model.extend({
   golfers: DS.hasMany('App.Golfer'),
+
   availableGolfers: function() {
     var self = this;
     return App.Golfer.filter(function(golfer) {
@@ -72,6 +73,7 @@ App.Bracket = DS.Model.extend({
           && golfer.get('cost') <= self.get('pointsAvailable');
     });
   }.property('golfers.@each', 'pointsAvailable'),
+
   spent: function() {
     if ( this.get('golfers.length') === 0 ) { return 0; }
 
@@ -79,6 +81,7 @@ App.Bracket = DS.Model.extend({
       return (result || 0) + golfer.get('cost');
     });
   }.property('golfers.@each.cost'),
+
   pointsAvailable: function() {
     return (50 - this.get('spent')) || 0;
   }.property('spent')
