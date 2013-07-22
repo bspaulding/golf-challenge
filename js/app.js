@@ -6,13 +6,17 @@ App = Ember.Application.create();
 
 App.Store = DS.Store.extend({
   revision: 13,
-  adapter: DS.FixtureAdapter
+  adapter: ParseAdapter.create({
+    applicationId: 'RtuTUP4UioN4Jk51mMO3epOZbEI0pmHTdprFAL9n',
+    javascriptId: 'j24CboJmqSeY1p4YELdyw7SCypWHA20VeH3eqGcL',
+    restApiId: 'NMbhVqcUGUqb2tT1AhRE1HyzlMCSEhdLoJyNbMBv'
+  })
 });
 
 App.IndexRoute = Ember.Route.extend({
   model: function() {
     return {
-      bracket: App.Bracket.find(1),
+      bracket: App.Bracket.find('C2OkmPoiOe'),
       availableGolfers: App.Golfer.find()
     };
   }
