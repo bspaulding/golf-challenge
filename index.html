@@ -11,7 +11,7 @@
 </head>
 <body class="container-fluid">
 
-  <script type="text/x-handlebars">
+  <script type="text/x-handlebars" data-template-name="application">
     <h2 class="text-center">PGA Golf Challenge</h2>
 
     <div class="row-fluid">
@@ -24,7 +24,7 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="brackets/edit">
-    {{#if model.bracket.isLoaded}}
+    {{#if bracket.isLoaded}}
     <h3 class="text-center">Edit Your Bracket</h3>
 
     <div class="progress big">

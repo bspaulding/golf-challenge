@@ -21,23 +21,25 @@ App.Router.map(function() {
 
 App.IndexRoute = Ember.Route.extend({
   redirect: function() {
-    this.transitionTo('brackets.edit', {
-      bracket: App.Bracket.find('C2OkmPoiOe'),
-      availableGolfers: App.Golfer.find()
-    });
+    this.transitionTo('brackets.edit', { bracket: App.Bracket.find('C2OkmPoiOe') });
   }
 });
 
 App.BracketsEditRoute = Ember.Route.extend({
-  model: function() {
-    return {
-      bracket: App.Bracket.find('C2OkmPoiOe'),
-      availableGolfers: App.Golfer.find()
-    };
+  setupController: function(controller, model) {
+    // not sure why this is necessary,
+    // but App.Golfer doesn't seem to load if not.
+    App.Golfer.find();
+
+    controller.set('model', model);
   },
 
-  renderTemplate: function() {
-    this.render({ into: 'application' });
+  model: function(params) {
+    return { bracket: App.Bracket.find(params.id) };
+  },
+
+  serialize: function(object) {
+    return { id: object.bracket.id };
   }
 });
 
