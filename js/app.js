@@ -5,23 +5,43 @@ DS.RecordArray.reopen({
 App = Ember.Application.create();
 
 App.Store = DS.Store.extend({
-  adapter: ParseAdapter.create({
-    applicationId: 'RtuTUP4UioN4Jk51mMO3epOZbEI0pmHTdprFAL9n',
-    javascriptId: 'j24CboJmqSeY1p4YELdyw7SCypWHA20VeH3eqGcL',
-    restApiId: 'NMbhVqcUGUqb2tT1AhRE1HyzlMCSEhdLoJyNbMBv'
-  })
+  adapter: DS.FixtureAdapter
+  // adapter: ParseAdapter.create({
+  //   applicationId: 'RtuTUP4UioN4Jk51mMO3epOZbEI0pmHTdprFAL9n',
+  //   javascriptId: 'j24CboJmqSeY1p4YELdyw7SCypWHA20VeH3eqGcL',
+  //   restApiId: 'NMbhVqcUGUqb2tT1AhRE1HyzlMCSEhdLoJyNbMBv'
+  // })
+});
+
+App.Router.map(function() {
+  this.resource('brackets', function() {
+    this.route('edit', { path: '/:id/edit' });
+  });
 });
 
 App.IndexRoute = Ember.Route.extend({
+  redirect: function() {
+    this.transitionTo('brackets.edit', {
+      bracket: App.Bracket.find('C2OkmPoiOe'),
+      availableGolfers: App.Golfer.find()
+    });
+  }
+});
+
+App.BracketsEditRoute = Ember.Route.extend({
   model: function() {
     return {
       bracket: App.Bracket.find('C2OkmPoiOe'),
       availableGolfers: App.Golfer.find()
     };
+  },
+
+  renderTemplate: function() {
+    this.render({ into: 'application' });
   }
 });
 
-App.IndexController = Ember.ObjectController.extend({
+App.BracketsEditController = Ember.ObjectController.extend({
   saveBracket: function() {
     this.get('model.bracket.store').commit();
   },
