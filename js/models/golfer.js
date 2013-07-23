@@ -1,6 +1,10 @@
 App.Golfer = ParseModel.extend({
   name: DS.attr('string'),
   rank: DS.attr('number'),
+  golferAchievements: DS.hasMany('App.GolferAchievement'),
+  achievements: function() {
+    return this.get('golferAchievements').mapProperty('achievement').uniq();
+  }.property('golferAchievements.@each.achievement'),
   cost: function() {
     var rank = this.get('rank');
 
