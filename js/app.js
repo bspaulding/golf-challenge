@@ -62,7 +62,7 @@ App.IndexController = Ember.ObjectController.extend({
   }.property('model.bracket.spent')
 });
 
-App.Bracket = DS.Model.extend({
+App.Bracket = ParseModel.extend({
   golfers: DS.hasMany('App.Golfer'),
 
   availableGolfers: function() {
@@ -90,7 +90,7 @@ App.Bracket.FIXTURES = [
   { id: 1, golfers: [] }
 ];
 
-App.Golfer = DS.Model.extend({
+App.Golfer = ParseModel.extend({
   name: DS.attr('string'),
   rank: DS.attr('number'),
   cost: function() {
