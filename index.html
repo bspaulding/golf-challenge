@@ -23,6 +23,45 @@
     </div>
   </script>
 
+  <script type="text/x-handlebars" data-template-name="achievements/index">
+    <h3 class="text-center">Achievements</h3>
+    <ul class="unstyled">
+      {{#each achievement in model}}
+        <li>
+          <button class="btn btn-info pull-right" {{action "awardAchievement" achievement}}>
+            <i class="icon-star icon-white"></i> Award
+          </button>
+          <strong>{{translate achievement.type}} &dash; {{translate achievement.key}}</strong><br/>
+          <em>{{achievement.points}} Points, {{achievement.golfers.length}} golfers.</em>
+        </li>
+      {{/each}}
+    </ul>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="achievements/award">
+    <h3 class="text-center">Award Achievement</h3>
+    <p class="text-center">{{translate achievement.type}} - {{translate achievement.key}}</p>
+    {{#if controller.golfers.isLoaded}}
+    <div class="row-fluid">
+      <div class="span12">
+      {{select contentBinding="controller.golfers"
+               selectionBinding="controller.selectedGolfer"
+               optionValuePath="content.id"
+               optionLabelPath="content.name"}}
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span12">
+      <button class="btn btn-info" {{action "award"}}>
+        <i class="icon-star icon-white"></i> Award Achievement
+      </button>
+      </div>
+    </div>
+    {{else}}
+      Loading Golfers...
+    {{/if}}
+  </script>
+
   <script type="text/x-handlebars" data-template-name="brackets/edit">
     {{#if bracket.isLoaded}}
     <h3 class="text-center">Edit Your Bracket</h3>
@@ -80,11 +119,19 @@
   <script src="js/libs/ember-data.js"></script>
   <script src="js/libs/ember-parse-adapter-0.2.2.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/translations.js"></script>
+  <script src="js/helpers/translate.js"></script>
+  <script src="js/helpers/select_field_helper.js"></script>
   <script src="js/models/achievement.js"></script>
   <script src="js/models/bracket.js"></script>
   <script src="js/models/golfer.js"></script>
+  <script src="js/models/golfer_achievement.js"></script>
+  <script src="js/controllers/achievements_index_controller.js"></script>
+  <script src="js/controllers/achievements_award_controller.js"></script>
   <script src="js/controllers/brackets_edit_controller.js"></script>
   <script src="js/routes/index_route.js"></script>
+  <script src="js/routes/achievements_index_route.js"></script>
+  <script src="js/routes/achievements_award_route.js"></script>
   <script src="js/routes/brackets_edit_route.js"></script>
 
 </body>

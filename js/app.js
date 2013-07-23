@@ -14,6 +14,9 @@ App.Store = DS.Store.extend({
 });
 
 App.Router.map(function() {
+  this.resource('achievements', function() {
+    this.route('award', { path: '/:id/award' });
+  });
   this.resource('brackets', function() {
     this.route('edit', { path: '/:id/edit' });
   });
