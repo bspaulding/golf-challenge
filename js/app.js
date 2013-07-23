@@ -5,12 +5,11 @@ DS.RecordArray.reopen({
 App = Ember.Application.create();
 
 App.Store = DS.Store.extend({
-  adapter: DS.FixtureAdapter
-  // adapter: ParseAdapter.create({
-  //   applicationId: 'RtuTUP4UioN4Jk51mMO3epOZbEI0pmHTdprFAL9n',
-  //   javascriptId: 'j24CboJmqSeY1p4YELdyw7SCypWHA20VeH3eqGcL',
-  //   restApiId: 'NMbhVqcUGUqb2tT1AhRE1HyzlMCSEhdLoJyNbMBv'
-  // })
+  adapter: ParseAdapter.create({
+    applicationId: 'RtuTUP4UioN4Jk51mMO3epOZbEI0pmHTdprFAL9n',
+    javascriptId: 'j24CboJmqSeY1p4YELdyw7SCypWHA20VeH3eqGcL',
+    restApiId: 'NMbhVqcUGUqb2tT1AhRE1HyzlMCSEhdLoJyNbMBv'
+  })
 });
 
 App.Router.map(function() {
