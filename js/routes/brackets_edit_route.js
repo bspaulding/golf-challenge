@@ -12,6 +12,10 @@ App.BracketsEditRoute = Ember.Route.extend({
   },
 
   serialize: function(object) {
+    if ( object.constructor && object.constructor === App.Bracket ) {
+      return { id: object.id };
+    }
+
     return { id: object.bracket.id };
   }
 });

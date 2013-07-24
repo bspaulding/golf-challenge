@@ -6,7 +6,14 @@
 .table th.text-right,
 .table td.text-right { text-align: right; }
 
+.table th.text-center,
+.table td.text-center { text-align: center; }
+
 .table tr.child { background-color: #f9f9f9; }
+
+.btn.top-action { position: absolute; top: 60px; }
+.btn.top-action-left { left: 20px; }
+.btn.top-action-right { right: 20px; }
 
 /* Large desktop */
 /* @media (min-width: 1200px) { ... } */

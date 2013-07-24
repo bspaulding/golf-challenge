@@ -16,7 +16,7 @@
       <div class="navbar-inner">
         <a class="brand" href="#">PGA Golf Challenge</a>
         <ul class="nav">
-          <li><a href="#/brackets/C2OkmPoiOe/edit">Bracket</a></li>
+          <li><a href="#/brackets/C2OkmPoiOe">Bracket</a></li>
           <li><a href="#/achievements">Achievements</a></li>
         </ul>
       </div>
@@ -72,21 +72,24 @@
 
   <script type="text/x-handlebars" data-template-name="brackets/show">
     <h3 class="text-center">Your Bracket</h3>
+    {{#linkTo brackets.edit model class="btn btn-warning top-action top-action-right"}}
+      <i class="icon-edit icon-white"></i> Edit
+    {{/linkTo}}
     <table class="table">
       <thead>
         <tr>
-          <th class="text-left">Rank</th>
+          <th class="text-center">Rank</th>
           <th class="text-left">Golfer</th>
-          <th class="text-right"># Achievements</th>
+          <th class="text-right">Achievements</th>
           <th class="text-right">Score</th>
         </tr>
       </thead>
       <tbody>
         {{#each golfer in bracket.golfers}}
           <tr>
-            <td>{{golfer.rank}}</td>
+            <td class="text-center">#{{golfer.rank}}</td>
             <td>{{golfer.name}}</td>
-            <td class="text-right">{{golfer.golferAchievements.length}}</td>
+            <td></td>
             <th class="text-right">{{golfer.score}}</th>
           </tr>
           {{#each golferAchievement in golfer.golferAchievements}}
@@ -113,6 +116,9 @@
   <script type="text/x-handlebars" data-template-name="brackets/edit">
     {{#if bracket.isLoaded}}
     <h3 class="text-center">Edit Your Bracket</h3>
+    {{#linkTo brackets.show model class="btn btn-primary top-action top-action-right"}}
+      Done
+    {{/linkTo}}
 
     <div class="progress big">
       <div class="bar bar-info" {{bindAttr style="controller.spentBarStyle"}}>
