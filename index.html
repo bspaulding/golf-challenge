@@ -33,14 +33,22 @@
 
   <script type="text/x-handlebars" data-template-name="achievements/index">
     <h3 class="text-center">Achievements</h3>
-    <ul class="unstyled">
+    <table class="table">
+      <tbody>
       {{#each achievement in model}}
-        <li>
-          <button class="btn btn-info pull-right" {{action "awardAchievement" achievement}}>
-            <i class="icon-star icon-white"></i> Award
-          </button>
-          <strong>{{translate achievement.type}} &dash; {{translate achievement.key}}</strong><br/>
-          <em>{{achievement.points}} Points, awarded {{achievement.golferAchievements.length}} time(s) to {{achievement.golfers.length}} golfers.</em>
+        <tr>
+          <th class="text-center">
+            <h4>{{achievement.points}}</h4>
+          </th>
+          <td>
+            <strong>{{translate achievement.type}} &dash; {{translate achievement.key}}</strong><br/>
+            <em>Awarded {{pluralize achievement.golferAchievements.length 'time'}} to {{achievement.golfers.length}} golfers.</em>
+          </td>
+          <td>
+            <button class="btn btn-info pull-right" {{action "awardAchievement" achievement}}>
+              <i class="icon-star icon-white"></i> Award
+            </button>
+          </td>
         </li>
       {{/each}}
     </ul>
@@ -177,6 +185,7 @@
   <script src="js/translations.js"></script>
   <script src="js/helpers/translate.js"></script>
   <script src="js/helpers/select_field_helper.js"></script>
+  <script src="js/helpers/pluralize.js"></script>
   <script src="js/models/achievement.js"></script>
   <script src="js/models/bracket.js"></script>
   <script src="js/models/golfer.js"></script>
