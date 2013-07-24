@@ -70,6 +70,46 @@
     {{/if}}
   </script>
 
+  <script type="text/x-handlebars" data-template-name="brackets/show">
+    <h3 class="text-center">Your Bracket</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="text-left">Rank</th>
+          <th class="text-left">Golfer</th>
+          <th class="text-right"># Achievements</th>
+          <th class="text-right">Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each golfer in bracket.golfers}}
+          <tr>
+            <td>{{golfer.rank}}</td>
+            <td>{{golfer.name}}</td>
+            <td class="text-right">{{golfer.golferAchievements.length}}</td>
+            <th class="text-right">{{golfer.score}}</th>
+          </tr>
+          {{#each golferAchievement in golfer.golferAchievements}}
+          <tr class="child">
+            <td colspan="3" class="text-right">
+              {{translate golferAchievement.key}}
+            </td>
+            <td class="text-right">{{golferAchievement.points}}</td>
+          </tr>
+          {{/each}}
+        {{/each}}
+      </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="3" class="text-right">
+            Total Score:
+          </th>
+          <th class="text-right">{{bracket.score}}</th>
+        </tr>
+      </tfoot>
+    </table>
+  </script>
+
   <script type="text/x-handlebars" data-template-name="brackets/edit">
     {{#if bracket.isLoaded}}
     <h3 class="text-center">Edit Your Bracket</h3>
@@ -141,6 +181,7 @@
   <script src="js/routes/achievements_index_route.js"></script>
   <script src="js/routes/achievements_award_route.js"></script>
   <script src="js/routes/brackets_edit_route.js"></script>
+  <script src="js/routes/brackets_show_route.js"></script>
 
 </body>
 </html>

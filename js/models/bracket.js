@@ -13,17 +13,23 @@ App.Bracket = ParseModel.extend({
     if ( this.get('golfers.length') === 0 ) { return 0; }
 
     return this.get('golfers').reduce(function(result, golfer) {
-      return (result || 0) + golfer.get('cost');
-    });
+      return result + golfer.get('cost');
+    }, 0);
   }.property('golfers.@each.cost'),
 
   pointsAvailable: function() {
     return (50 - this.get('spent')) || 0;
-  }.property('spent')
+  }.property('spent'),
+
+  score: function() {
+    return this.get('golfers').mapProperty('score').reduce(function(result, score) {
+      return result + (score || 0);
+    }, 0);
+  }.property('golfers.@each.score')
 });
 
 App.Bracket.FIXTURES = [
-  { id: 'C2OkmPoiOe', golfers: [] }
+  { id: 'C2OkmPoiOe', golfers: [4] }
 ];
 
 

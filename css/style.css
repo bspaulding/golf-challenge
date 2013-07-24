@@ -3,6 +3,11 @@
 
 .row-fluid .span12.main { width: 66%; }
 
+.table th.text-right,
+.table td.text-right { text-align: right; }
+
+.table tr.child { background-color: #f9f9f9; }
+
 /* Large desktop */
 /* @media (min-width: 1200px) { ... } */
 

@@ -13,6 +13,7 @@ App.Router.map(function() {
     this.route('award', { path: '/:id/award' });
   });
   this.resource('brackets', function() {
+    this.route('show', { path: '/:id' });
     this.route('edit', { path: '/:id/edit' });
   });
 });
