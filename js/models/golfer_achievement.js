@@ -1,4 +1,4 @@
-App.GolferAchievement = ParseModel.extend({
+App.GolferAchievement = DS.Model.extend({
   golfer: DS.belongsTo('App.Golfer'),
   achievement: DS.belongsTo('App.Achievement'),
   pointsBinding: 'achievement.points',

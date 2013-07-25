@@ -1,4 +1,4 @@
-App.Bracket = ParseModel.extend({
+App.Bracket = DS.Model.extend({
   bracketGolfers: DS.hasMany('App.BracketGolfer'),
   golfers: function() {
     return this.get('bracketGolfers').getEach('golfer').compact();

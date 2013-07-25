@@ -1,4 +1,4 @@
-App.Achievement = ParseModel.extend({
+App.Achievement = DS.Model.extend({
   key: DS.attr('string'),
   points: DS.attr('number'),
   golferAchievements: DS.hasMany('App.GolferAchievement'),
