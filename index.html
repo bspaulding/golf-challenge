@@ -41,7 +41,7 @@
             <h4>{{achievement.points}}</h4>
           </th>
           <td>
-            <strong>{{translate achievement.type}} &dash; {{translate achievement.key}}</strong><br/>
+            <strong>{{translate achievement.key}}</strong><br/>
             <em>Awarded {{pluralize achievement.golferAchievements.length 'time'}} to {{achievement.golfers.length}} golfers.</em>
           </td>
           <td>
@@ -57,7 +57,7 @@
 
   <script type="text/x-handlebars" data-template-name="achievements/award">
     <h3 class="text-center">Award Achievement</h3>
-    <p class="text-center">{{translate achievement.type}} - {{translate achievement.key}}</p>
+    <p class="text-center">{{translate achievement.key}}</p>
     {{#if controller.golfers.isLoaded}}
     <div class="row-fluid">
       <div class="span12">

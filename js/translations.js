@@ -1,33 +1,27 @@
 App.set('translations', {
   brackets: {
     show: {
-      'tournament': 'Tournament',
-      'single-day': 'Single Day',
-      '1st-place-finish': '1st Place Finish',
-      '2nd-place-finish': '2nd Place Finish',
-      'top-10-finish': 'Top 10 Finish',
-      'leading-after-day': 'Leading After Day',
-      'low-score-for-round': 'Low Score For Round'
+      'tournament-1st-place-finish': 'Tournament - 1st Place Finish',
+      'tournament-2nd-place-finish': 'Tournament - 2nd Place Finish',
+      'tournament-top-10-finish': 'Tournament - Top 10 Finish',
+      'single-day-leading-after-day': 'Single Day - Leading After Day',
+      'single-day-low-score-for-round': 'Single Day - Low Score For Round'
     }
   },
   achievements: {
     index: {
-      'tournament': 'Tournament',
-      'single-day': 'Single Day',
-      '1st-place-finish': '1st Place Finish',
-      '2nd-place-finish': '2nd Place Finish',
-      'top-10-finish': 'Top 10 Finish',
-      'leading-after-day': 'Leading After Day',
-      'low-score-for-round': 'Low Score For Round'
+      'tournament-1st-place-finish': 'Tournament - 1st Place Finish',
+      'tournament-2nd-place-finish': 'Tournament - 2nd Place Finish',
+      'tournament-top-10-finish': 'Tournament - Top 10 Finish',
+      'single-day-leading-after-day': 'Single Day - Leading After Day',
+      'single-day-low-score-for-round': 'Single Day - Low Score For Round'
     },
     award: {
-      'tournament': 'Tournament',
-      'single-day': 'Single Day',
-      '1st-place-finish': '1st Place Finish',
-      '2nd-place-finish': '2nd Place Finish',
-      'top-10-finish': 'Top 10 Finish',
-      'leading-after-day': 'Leading After Day',
-      'low-score-for-round': 'Low Score For Round'
+      'tournament-1st-place-finish': 'Tournament - 1st Place Finish',
+      'tournament-2nd-place-finish': 'Tournament - 2nd Place Finish',
+      'tournament-top-10-finish': 'Tournament - Top 10 Finish',
+      'single-day-leading-after-day': 'Single Day - Leading After Day',
+      'single-day-low-score-for-round': 'Single Day - Low Score For Round'
     }
   }
 });
