@@ -1,5 +1,8 @@
 App.Bracket = ParseModel.extend({
-  golfers: DS.hasMany('App.Golfer'),
+  bracketGolfers: DS.hasMany('App.BracketGolfer'),
+  golfers: function() {
+    return this.get('bracketGolfers').getEach('golfer').compact();
+  }.property('bracketGolfers.@each.golfer'),
 
   availableGolfers: function() {
     var self = this;
