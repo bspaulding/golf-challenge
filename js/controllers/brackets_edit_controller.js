@@ -1,16 +1,15 @@
 App.BracketsEditController = Ember.ObjectController.extend({
-  saveBracket: function() {
-    this.get('model.bracket.store').commit();
-  },
-
   addGolfer: function(golfer) {
-    this.get('model.bracket.golfers').addObject(golfer);
-    this.saveBracket();
+    var bracketGolfer = App.BracketGolfer.createRecord({
+      bracket: this.get('model.bracket'),
+      golfer: golfer
+    });
+    bracketGolfer.get('store').commit();
   },
 
-  removeGolfer: function(golfer) {
-    this.get('model.bracket.golfers').removeObject(golfer);
-    this.saveBracket();
+  removeGolfer: function(bracketGolfer) {
+    bracketGolfer.deleteRecord();
+    bracketGolfer.get('store').commit();
   },
 
   availableGolferFilter: '',
@@ -23,10 +22,6 @@ App.BracketsEditController = Ember.ObjectController.extend({
       return golfer.get('name').toLowerCase().indexOf(filter) >= 0;
     });
   }.property('model.bracket.availableGolfers', 'availableGolferFilter'),
-
-  selectedGolfers: function() {
-    return this.get('model.bracket.golfers');
-  }.property('model.bracket.golfers'),
 
   availableBarStyle: function() {
     var percent = this.get('model.bracket.pointsAvailable') / 50 * 100
