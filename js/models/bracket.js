@@ -15,8 +15,8 @@ App.Bracket = DS.Model.extend({
   spent: function() {
     if ( this.get('golfers.length') === 0 ) { return 0; }
 
-    return this.get('golfers').reduce(function(result, golfer) {
-      return result + golfer.get('cost');
+    return this.get('golfers').mapProperty('cost').reduce(function(result, cost) {
+      return result + (cost || 0);
     }, 0);
   }.property('golfers.@each.cost'),
 
