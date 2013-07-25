@@ -5,7 +5,7 @@ DS.RecordArray.reopen({
 App = Ember.Application.create();
 
 App.Store = DS.Store.extend({
-  adapter: DS.FixtureAdapter
+  adapter: DS.RESTAdapter
 });
 
 App.Router.map(function() {
