@@ -1,4 +1,6 @@
 GolfChallengeRailsBackend::Application.routes.draw do
+  resources :countries
+
   resources :bracket_golfers
 
   resources :golfer_achievements
