@@ -5,4 +5,5 @@ class GolferSerializer < ActiveModel::Serializer
 
   has_many :golfer_achievements
   has_many :bracket_golfers
+  has_one :country
 end
