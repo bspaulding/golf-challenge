@@ -1,6 +1,7 @@
 App.Golfer = DS.Model.extend({
   name: DS.attr('string'),
   rank: DS.attr('number'),
+  country: DS.belongsTo('App.Country'),
   golferAchievements: DS.hasMany('App.GolferAchievement'),
   cost: function() {
     var rank = this.get('rank');
