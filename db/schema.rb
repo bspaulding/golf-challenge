@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130726021712) do
+ActiveRecord::Schema.define(version: 20130727210339) do
 
   create_table "achievements", force: true do |t|
     t.string   "key"
@@ -28,6 +28,14 @@ ActiveRecord::Schema.define(version: 20130726021712) do
   end
 
   create_table "brackets", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "countries", force: true do |t|
+    t.string   "name"
+    t.string   "alpha3"
+    t.string   "alpha2"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -51,7 +59,7 @@ ActiveRecord::Schema.define(version: 20130726021712) do
     t.integer  "rank"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "country_code"
+    t.integer  "country_id"
   end
 
 end
