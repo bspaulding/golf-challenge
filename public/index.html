@@ -155,16 +155,25 @@
     <table class="table table-striped">
       <tbody>
       {{#each bracketGolfer in bracket.bracketGolfers}}
+        {{#with bracketGolfer}}
         <tr>
+          <td class="text-center" style="position:relative;">
+            <strong style="text-shadow:0px 0px 8px white;">{{golfer.rank}}</strong>
+            <div style="z-index:-1;position:absolute;top:0;left:0;right:0;bottom:0;">
+              {{flag countryBinding="golfer.country"}}
+            </div>
+          </td>
           <td>
-            <strong>{{bracketGolfer.golfer.name}}</strong><br/>
-            <em>{{bracketGolfer.golfer.cost}} points</em>
+            <strong>{{golfer.name}}</strong><br/>
+            <small>{{golfer.country.name}}</small><br/>
+            <em>{{golfer.cost}} points</em>
           </td>
           <td>
             <button class="btn btn-danger pull-right" {{action "removeGolfer" bracketGolfer}}>
               <i class="icon-minus icon-white"></i> Remove
             </button>
           </td>
+          {{/with}}
         </tr>
       {{/each}}
       </tbody>
@@ -178,8 +187,15 @@
       <tbody>
     {{#each golfer in controller.availableGolfers}}
       <tr>
+        <td class="text-center" style="position:relative;">
+          <strong style="text-shadow:0px 0px 8px white;">{{golfer.rank}}</strong>
+          <div style="z-index:-1;position:absolute;top:0;left:0;right:0;bottom:0;">
+            {{flag countryBinding="golfer.country"}}
+          </div>
+        </td>
         <td>
           <strong>{{golfer.name}}</strong><br/>
+          <small>{{golfer.country.name}}</small><br/>
           <em>{{golfer.cost}} points</em>
         </td>
         <td>
