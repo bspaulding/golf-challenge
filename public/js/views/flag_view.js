@@ -10,3 +10,4 @@ App.FlagView = Ember.View.extend({
   }.property('country.name')
 });
 
+Ember.Handlebars.helper('flag', App.FlagView);
