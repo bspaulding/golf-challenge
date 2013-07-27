@@ -11,7 +11,8 @@ seed_data_dir = File.join(Rails.root, 'db', 'seed_data')
 
 countries_attributes = JSON.parse(File.read(File.join(seed_data_dir, 'countries.json')))
 countries_attributes.each do |country_attributes|
-  Country.find_or_create_by_name_and_alpha3(country_attributes)
+  country = Country.find_or_create_by_alpha3(country_attributes)
+  country.update_attributes!(country_attributes)
 end
 
 golfers_attributes = JSON.parse(File.read(File.join(seed_data_dir, 'golfers.json')))
@@ -21,6 +22,7 @@ golfers_attributes.each do |golfer_attributes|
   country = Country.find_by_alpha3(country_code)
   if country
     golfer.country = country
+    golfer.save!
   else
     raise ActiveRecord::RecordNotFound.new("Couldn't find Country with alpha3 code: '#{country_code}'")
   end
