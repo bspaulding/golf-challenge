@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130725002350) do
+ActiveRecord::Schema.define(version: 20130726021712) do
 
   create_table "achievements", force: true do |t|
     t.string   "key"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20130725002350) do
     t.integer  "rank"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "country_code"
   end
 
 end
