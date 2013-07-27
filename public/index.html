@@ -181,32 +181,34 @@
 
     <hr>
 
-    <h4>Available Golfers <small>({{controller.availableGolfers.length}})</small></h4>
-    {{input type="text" class="span12" placeholder="Search by name" valueBinding="controller.availableGolferFilter"}}
-    <table class="table table-striped">
-      <tbody>
-    {{#each golfer in controller.availableGolfers}}
-      <tr>
-        <td class="text-center" style="position:relative;">
-          <strong style="text-shadow:0px 0px 8px white;">{{golfer.rank}}</strong>
-          <div style="z-index:-1;position:absolute;top:0;left:0;right:0;bottom:0;">
-            {{flag countryBinding="golfer.country"}}
-          </div>
-        </td>
-        <td>
-          <strong>{{golfer.name}}</strong><br/>
-          <small>{{golfer.country.name}}</small><br/>
-          <em>{{golfer.cost}} points</em>
-        </td>
-        <td>
-          <button class="btn btn-success pull-right" {{action "addGolfer" golfer}}>
-            <i class="icon-plus icon-white"></i> Add
-          </button>
-        </td>
-      </tr>
-    {{/each}}
-      </tbody>
-    </table>
+      {{#unless controller.availableGolfers.isEmpty}}
+      <h4>Available Golfers <small>({{controller.availableGolfers.length}})</small></h4>
+      {{input type="text" class="span12" placeholder="Search by name" valueBinding="controller.availableGolferFilter"}}
+      <table class="table table-striped">
+        <tbody>
+      {{#each golfer in controller.availableGolfers}}
+        <tr>
+          <td class="text-center" style="position:relative;">
+            <strong style="text-shadow:0px 0px 8px white;">{{golfer.rank}}</strong>
+            <div style="z-index:-1;position:absolute;top:0;left:0;right:0;bottom:0;">
+              {{flag countryBinding="golfer.country"}}
+            </div>
+          </td>
+          <td>
+            <strong>{{golfer.name}}</strong><br/>
+            <small>{{golfer.country.name}}</small><br/>
+            <em>{{golfer.cost}} points</em>
+          </td>
+          <td>
+            <button class="btn btn-success pull-right" {{action "addGolfer" golfer}}>
+              <i class="icon-plus icon-white"></i> Add
+            </button>
+          </td>
+        </tr>
+      {{/each}}
+        </tbody>
+      </table>
+      {{/unless}}
     {{else}}
       <p class="text-center text-info"><em>Loading bracket...</em></p>
     {{/if}}
