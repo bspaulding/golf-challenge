@@ -4,4 +4,6 @@ class Golfer < ActiveRecord::Base
 
   has_many :golfer_achievements
   has_many :achievements, :through => :golfer_achievements
+
+  belongs_to :country
 end
