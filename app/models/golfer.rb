@@ -6,4 +6,6 @@ class Golfer < ActiveRecord::Base
   has_many :achievements, :through => :golfer_achievements
 
   belongs_to :country
+
+  validates :name, :rank, :country, :presence => true
 end
