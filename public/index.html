@@ -103,11 +103,10 @@
                 {{flag countryBinding="golfer.country"}}
               </div>
             </td>
-            <td>
+            <td colspan="2">
               <strong>{{golfer.name}}</strong><br/>
               {{golfer.country.name}}
             </td>
-            <td></td>
             <th class="text-right">{{golfer.score}}</th>
           </tr>
           {{#each golferAchievement in golfer.golferAchievements}}
