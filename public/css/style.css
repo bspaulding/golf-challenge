@@ -29,4 +29,6 @@ img.flag { opacity:0.3;height:36px; }
 }
 
 /* Landscape phones and down */
-/* @media (max-width: 480px) { ... } */
+@media (max-width: 480px) {
+  .btn.top-action { top: 95px; }
+}
