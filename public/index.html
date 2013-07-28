@@ -32,7 +32,7 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="achievements/index">
-    <h3 class="text-center">Achievements</h3>
+    <h3>Achievements</h3>
     <table class="table">
       <tbody>
       {{#each achievement in model}}
@@ -56,7 +56,7 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="achievements/award">
-    <h3 class="text-center">Award Achievement</h3>
+    <h3>Award Achievement</h3>
     <p class="text-center">{{translate achievement.key}}</p>
     {{#if controller.golfers.isLoaded}}
     <div class="row-fluid">
@@ -81,7 +81,7 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="brackets/show">
-    <h3 class="text-center">Your Bracket</h3>
+    <h3>Your Bracket</h3>
     {{#linkTo brackets.edit model class="btn btn-primary top-action top-action-right"}}
       <i class="icon-edit icon-white"></i> Edit
     {{/linkTo}}
@@ -132,7 +132,7 @@
 
   <script type="text/x-handlebars" data-template-name="brackets/edit">
     {{#if bracket.isLoaded}}
-    <h3 class="text-center">Edit Your Bracket</h3>
+    <h3>Edit Your Bracket</h3>
     {{#linkTo brackets.show model class="btn btn-primary top-action top-action-right"}}
       Done
     {{/linkTo}}
