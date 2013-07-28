@@ -1,0 +1,10 @@
+language: ruby
+rvm:
+  - 2.0.0
+deploy:
+  provider: heroku
+  api_key:
+    secure: AoVXI5vHpFsx0LT9p94XwGebaeQZT45jmRfqFT5tvQhogJKP+HloMVJmeCBj86j1EddZbATtVAl3vuOAFG2vJsGTsgHD/F7VGF280Cyd5OH+fcQk1noLj04nURKciInxN+WuzyH6iPtOWIgAXRCKQe/8GlRwJd/qKo7AvDe1iAo=
+  app: golf-challenge
+  on:
+    repo: bspaulding/golf-challenge
