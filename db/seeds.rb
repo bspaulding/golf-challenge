@@ -40,3 +40,5 @@ Golfer.where(["name not in (?)", golfers_attributes.map {|hash| hash["name"] }])
   achievement.update_attributes(attributes)
 end
 
+# Create a bracket if none exists
+Bracket.create! if Bracket.count == 0
