@@ -1,8 +1,8 @@
 language: ruby
 rvm:
   - jruby-19mode
-before_script:
-  - rake travis:create_database_config
+script:
+  - rake travis
 deploy:
   provider: heroku
   api_key:
