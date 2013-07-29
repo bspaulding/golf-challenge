@@ -4,6 +4,10 @@ DS.RecordArray.reopen({
 
 App = Ember.Application.create();
 
+$(document).ready(function() {
+  new FastClick(document.body);
+});
+
 App.Store = DS.Store.extend({
   adapter: DS.RESTAdapter
 });
