@@ -33,5 +33,9 @@ img.flag { opacity:0.3;height:36px; }
 /* Landscape phones and down */
 @media (max-width: 480px) {
   .main>h3 { text-align: left; }
+}
+
+/* Portrait phones */
+@media (max-width: 320px) {
   .btn.top-action { top: 95px; }
 }
