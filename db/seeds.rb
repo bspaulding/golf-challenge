@@ -27,6 +27,7 @@ golfers_attributes.each do |golfer_attributes|
     raise ActiveRecord::RecordNotFound.new("Couldn't find Country with alpha3 code: '#{country_code}'")
   end
 end
+Golfer.where(["name not in (?)", golfers_attributes.map {|hash| hash["name"] }]).destroy_all
 
 [
   { :points => 100, :key => 'tournament-1st-place-finish' },
