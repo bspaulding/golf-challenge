@@ -10,6 +10,8 @@ gem 'rails_12factor', :group => :production # for heroku
 gem 'puma'
 gem 'foreman', :group => :development
 
+gem 'newrelic_rpm', :group => :production
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', :group => :development
 gem 'pg', :group => :production
