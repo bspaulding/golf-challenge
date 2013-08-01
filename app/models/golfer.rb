@@ -1,4 +1,6 @@
 class Golfer < ActiveRecord::Base
+  include CacheableModel
+
   has_many :bracket_golfers
   has_many :brackets, :through => :bracket_golfers
 
