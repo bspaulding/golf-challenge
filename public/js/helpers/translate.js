@@ -1,4 +1,5 @@
 Ember.Handlebars.helper('translate', function(value, options) {
+  if ( !!!value ) { return ''; }
   var context = options.contexts[0];
   var namespace = Ember.get(context.namespace.toString());
   var router = context.target.router;
