@@ -1,4 +1,4 @@
-ruby '2.0.0'
+ruby '1.9.3', :engine => 'jruby', :engine_version => '1.7.4'
 
 source 'https://rubygems.org'
 
@@ -12,9 +12,16 @@ gem 'foreman', :group => :development
 
 gem 'newrelic_rpm', :group => :production
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', :group => :development
-gem 'pg', :group => :production
+platforms :ruby do
+  gem 'sqlite3', :group => :development
+  gem 'pg', :group => :production
+end
+
+platforms :jruby do
+  gem 'jdbc-sqlite3', :group => :development
+  gem 'activerecord-jdbcsqlite3-adapter', '1.3.0.beta2', :group => :development
+  gem 'activerecord-jdbcpostgresql-adapter', :group => :production
+end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
