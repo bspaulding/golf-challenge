@@ -11,14 +11,15 @@ seed_data_dir = File.join(Rails.root, 'db', 'seed_data')
 
 countries_attributes = JSON.parse(File.read(File.join(seed_data_dir, 'countries.json')))
 countries_attributes.each do |country_attributes|
-  country = Country.find_or_create_by_alpha3(country_attributes)
+  country = Country.find_or_create_by(alpha3: country_attributes[:alpha3])
   country.update_attributes!(country_attributes)
 end
 
 golfers_attributes = JSON.parse(File.read(File.join(seed_data_dir, 'golfers.json')))
 golfers_attributes.each do |golfer_attributes|
   country_code = golfer_attributes.delete("country_code").upcase
-  golfer = Golfer.find_or_create_by_name(golfer_attributes)
+  golfer = Golfer.find_or_create_by(name: golfer_attributes[:name])
+  golfer.attributes = golfer_attributes
   country = Country.find_by_alpha3(country_code)
   if country
     golfer.country = country
