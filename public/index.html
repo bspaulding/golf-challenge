@@ -30,11 +30,11 @@
     </div>
 
     <div class="row">
-      <div class="col-2 hidden-phone"></div>
+      <div class="col-2 hidden-sm"></div>
       <div class="col-12 main">
         {{outlet}}
       </div>
-      <div class="col-2 hidden-phone"></div>
+      <div class="col-2 hidden-sm"></div>
     </div>
   </script>
 
@@ -53,7 +53,7 @@
           </td>
           <td>
             <button class="btn btn-info pull-right" {{action "awardAchievement" achievement}}>
-              <span class="glyphicon glyphicon-star"></span><span class="hidden-phone-portrait"> Award</span>
+              <span class="glyphicon glyphicon-star"></span><span class="hidden-sm-portrait"> Award</span>
             </button>
           </td>
         </tr>
@@ -178,7 +178,7 @@
           </td>
           <td>
             <button class="btn btn-danger pull-right" {{action "removeGolfer" bracketGolfer}}>
-              <span class="glyphicon glyphicon-minus"></span><span class="hidden-phone-portrait"> Remove</span>
+              <span class="glyphicon glyphicon-minus"></span><span class="hidden-sm-portrait"> Remove</span>
             </button>
           </td>
           {{/with}}
@@ -209,7 +209,7 @@
           </td>
           <td>
             <button class="btn btn-success pull-right" {{action "addGolfer" golfer}}>
-              <span class="glyphicon glyphicon-plus"></i><span class="hidden-phone-portrait"> Add</span>
+              <span class="glyphicon glyphicon-plus"></i><span class="hidden-sm-portrait"> Add</span>
             </button>
           </td>
         </tr>

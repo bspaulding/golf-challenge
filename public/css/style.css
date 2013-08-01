@@ -37,7 +37,7 @@ img.flag { opacity:0.3;height:36px; }
 
 /* Portrait phones */
 @media (max-width: 320px) {
-  .hidden-phone-portrait {
+  .hidden-sm-portrait {
     display: none !important;
   }
 }
