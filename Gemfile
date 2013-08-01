@@ -1,4 +1,4 @@
-ruby "1.9.3", :engine => "rbx"
+ruby "1.9.3", :engine => "rbx", :engine_version => "rbx-2.0.0dev"
 
 source 'https://rubygems.org'
 
