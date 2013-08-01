@@ -4,7 +4,7 @@ class GolfersController < ApplicationController
   # GET /golfers
   # GET /golfers.json
   def index
-    respond_with Golfer.all
+    respond_with Golfer.all_cached
   end
 
   # GET /golfers/1

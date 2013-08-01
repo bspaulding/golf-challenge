@@ -5,7 +5,7 @@ class AchievementsController < ApplicationController
   # GET /achievements
   # GET /achievements.json
   def index
-    respond_with Achievement.all
+    respond_with Achievement.all_cached
   end
 
   # GET /achievements/1
