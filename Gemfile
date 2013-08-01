@@ -9,6 +9,8 @@ gem 'rails', '4.0.0'
 gem 'rails_12factor', :group => :production # for heroku
 gem 'puma'
 gem 'foreman', :group => :development
+gem 'dalli'
+gem 'memcachier'
 
 gem 'newrelic_rpm', :group => :production
 
