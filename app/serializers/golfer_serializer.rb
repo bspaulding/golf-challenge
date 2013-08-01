@@ -1,5 +1,8 @@
 class GolferSerializer < ActiveModel::Serializer
-  embed :ids, :include => true
+  cached
+  delegate :cache_key, to: :object
+
+  embed :ids
 
   attributes :id, :name, :rank
 
