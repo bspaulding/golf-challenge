@@ -1,3 +1,5 @@
+ruby "1.9.3", :engine => "rbx", :engine_version => "2.0.0.rc1"
+
 source 'https://rubygems.org'
 
 gem 'active_model_serializers'
