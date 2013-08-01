@@ -37,7 +37,7 @@ Golfer.where(["name not in (?)", golfers_attributes.map {|hash| hash["name"] }])
   { :points => 25,  :key => 'single-day-leading-after-day' },
   { :points => 25,  :key => 'single-day-low-score-for-round' }
 ].each do |attributes|
-  achievement = Achievement.find_or_create_by_key(attributes[:key])
+  achievement = Achievement.find_or_create_by(key: attributes[:key])
   achievement.update_attributes(attributes)
 end
 
