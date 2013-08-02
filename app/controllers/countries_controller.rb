@@ -3,7 +3,7 @@ class CountriesController < ApplicationController
 
   # GET /countries.json
   def index
-    respond_with Country.all
+    respond_with Country.all_cached
   end
 
   # GET /countries/1.json
