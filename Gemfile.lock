@@ -38,6 +38,7 @@ GEM
     atomic (1.1.10)
     atomic (1.1.10-java)
     builder (3.1.4)
+    daemon_controller (1.1.5)
     dalli (2.6.4)
     dotenv (0.8.0)
     erubis (2.7.0)
@@ -66,12 +67,12 @@ GEM
     minitest (4.7.5)
     multi_json (1.7.7)
     newrelic_rpm (3.6.6.147)
+    passenger (4.0.17)
+      daemon_controller (>= 1.1.0)
+      rack
+      rake (>= 0.8.1)
     pg (0.16.0)
     polyglot (0.3.3)
-    puma (2.4.0)
-      rack (>= 1.1, < 2.0)
-    puma (2.4.0-java)
-      rack (>= 1.1, < 2.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -142,8 +143,8 @@ DEPENDENCIES
   jdbc-sqlite3
   memcachier
   newrelic_rpm
+  passenger
   pg
-  puma
   rails (= 4.0.0)
   rails_12factor
   sass-rails (~> 4.0.0)

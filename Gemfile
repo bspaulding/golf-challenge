@@ -7,7 +7,7 @@ gem 'active_model_serializers'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 gem 'rails_12factor', :group => :production # for heroku
-gem 'puma'
+gem 'passenger'
 gem 'foreman', :group => :development
 gem 'dalli'
 gem 'memcachier'
